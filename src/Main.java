@@ -1,8 +1,11 @@
+import br.com.alura.screenmatch.calculation.RecomendationFilter;
 import br.com.alura.screenmatch.calculation.TimeCalculator;
+import br.com.alura.screenmatch.models.Episode;
 import br.com.alura.screenmatch.models.Film;
 import br.com.alura.screenmatch.models.Series;
 
 import java.util.Scanner;
+import java.util.logging.Filter;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,7 +40,22 @@ public class Main {
 
         TimeCalculator calculator = new TimeCalculator();
         calculator.include(myFilm);
-        System.out.println("Tempo total do filme: " + calculator.getTotalTime() + " minutos");
+        System.out.println("Film's total time: " + calculator.getTotalTime() + " minutos");
+
+        RecomendationFilter filter = new RecomendationFilter();
+
+        System.out.print("Film rating: ");
+        filter.filter(myFilm);
+
+        Episode episode = new Episode();
+
+        episode.setNumber(1);
+        episode.setSerie(lupin);
+        episode.setTotalViews(300);
+        System.out.print("Episode rating: ");
+        filter.filter(episode);
+
+
 
     }
 }
