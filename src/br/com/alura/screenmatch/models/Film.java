@@ -7,6 +7,11 @@ import br.com.alura.screenmatch.calculation.Classification;
 public class Film extends Title implements Classification { //the "extends" is used to use properties from another class
    private String director;
 
+    public Film(String name, int relaseYear) {
+        super(name, relaseYear);
+
+    }
+
     public String getDirector() {
         return director;
     }
@@ -17,6 +22,13 @@ public class Film extends Title implements Classification { //the "extends" is u
 
     @Override
     public int getClassification() {
+
         return (int)calculateAvarage() / 2;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Film:" + this.getName() + "(" + getRelaseYear() + ")";
     }
 }
